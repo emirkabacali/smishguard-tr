@@ -12,6 +12,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - REST API (FastAPI): `GET /health`, `POST /v1/analyze` with pydantic request/response
   schemas, model loaded once at startup, 503 when the model is missing, privacy-preserving
   `key=value` logging
+- Multi-stage Dockerfile (non-root user, healthcheck, model mounted at runtime) with a
+  pinned `requirements-lock.txt`; demo-model script for smoke tests
+- CI: coverage threshold (80%) and a Docker build + smoke-test job; coverage, Python and
+  license badges
+
+### Changed
+
+- `pandas` and `pyarrow` moved to the new `data` extra; the API needs only core dependencies
 
 ## [0.5.0] - 2026-11-15
 

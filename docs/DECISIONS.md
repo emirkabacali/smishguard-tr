@@ -172,3 +172,25 @@ considered and why. Newest entries at the bottom.
   Docker / Kubernetes) than one that exits. SMS texts can contain personal data, so they are
   kept out of logs entirely (KVKK / GDPR data minimization). 1000 characters covers a long
   multi-part SMS while bounding the cost of a single request.
+
+## D-013: Docker image and dependency split
+
+- **Date:** 2026-11-15
+- **Decision:** Multi-stage `Dockerfile` on `python:3.13-slim`: a builder stage creates a
+  virtual environment from `requirements-lock.txt` (generated inside the same base image),
+  the runtime stage copies only that environment and runs as an unprivileged user (uid 10001)
+  with a `HEALTHCHECK` on `/health`. The trained model is **not** baked into the image; it is
+  mounted read-only at `/app/models`. `pandas` and `pyarrow` moved from the core dependencies
+  to a `data` extra. CI builds the image and smoke-tests it with a demo model trained on the
+  20-message test fixture.
+- **Alternatives:** `python:3.11-slim` as originally planned; training a demo model during
+  `docker build`; copying `models/` into the image; keeping one flat dependency list.
+- **Rationale:** The model's TF-IDF vocabulary contains n-grams from the academic-only
+  TurkishSMS messages, so shipping it inside an image would redistribute fragments of the
+  dataset. Mounting also lets the same image serve a retrained model. The image uses Python
+  3.13 because the model is pickled with the development environment's scikit-learn; the lock
+  file pins the same version (1.9.1) so the pickle loads in the container. The API never
+  imports pandas (scikit-learn only uses it if present), so splitting the extras cut the
+  image from 961 MB to 616 MB. A non-root user limits the damage of a compromised process.
+  Baking a fixture-trained model into the image would make `docker run` "work" while
+  silently returning meaningless scores.
