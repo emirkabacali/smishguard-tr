@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.0.0] - 2026-11-15
+
 ### Added
 
 - REST API (FastAPI): `GET /health`, `POST /v1/analyze` with pydantic request/response
@@ -16,24 +18,20 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   pinned `requirements-lock.txt`; demo-model script for smoke tests
 - CI: coverage threshold (80%) and a Docker build + smoke-test job; coverage, Python and
   license badges
-
 - Streamlit demo (`app/streamlit_app.py`) with example selector, colored risk level, score
-  breakdown and reasons; it reuses the `Analyzer`; screenshot in the README
+  breakdown and reasons; it reuses the `Analyzer`
+- Final README with results, limitations and ethics; architecture overview with Mermaid
+  diagrams; contributing guide including rules for curated data; a test that keeps the
+  README results table identical to `reports/metrics_test.json`
 
 ### Changed
 
-- `pandas` and `pyarrow` moved to the new `data` extra; the API needs only core dependencies
+- `pandas` and `pyarrow` moved to the new `data` extra; the API needs only core
+  dependencies (Docker image 961 MB → 616 MB)
 
 ## [0.5.0] - 2026-11-15
 
 ### Added
-
-- Score fusion (`risk = alpha * ml + (1 - alpha) * rules`) with low / medium / high levels
-- `Analyzer` facade: one entry point for end-to-end inference
-- `scripts/evaluate.py`: validation tuning of alpha and thresholds, single test-set comparison
-  of ML only / rules only / hybrid with bootstrap confidence intervals, confusion matrices and
-  an anonymized error analysis; fusion-tuning notebook
-- Masking of personal names after Turkish honorifics in report excerpts
 
 - Data pipeline: reproducible TurkishSMS download (pinned revision + SHA-256), loaders with
   schema validation, Turkish-aware normalization, PII masking, deduplication and a
@@ -41,12 +39,18 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Curated dataset with 42 synthetic smishing messages and 20 hard negatives (defanged)
 - Dataset card (`DATA.md`) and exploratory analysis notebook
 - Baseline text model: TF-IDF char (2–5) + word (1–2) n-grams with Logistic Regression,
-  Multinomial Naive Bayes for comparison, 5-fold CV, validation comparison, model persistence
-  with metadata, top n-gram explanation (`scripts/train.py`)
+  Multinomial Naive Bayes for comparison, 5-fold CV, validation comparison, model
+  persistence with metadata, top n-gram explanation (`scripts/train.py`)
 - Explainable rule engine: offline URL extraction with `tldextract`, six URL indicators
-  (brand impersonation, shortener, suspicious TLD, IP address, punycode, many hyphens/digits)
-  and five Turkish text indicators (urgency, money/fine, credential request, prize, address
-  issue), each producing a weighted, human-readable reason
+  (brand impersonation, shortener, suspicious TLD, IP address, punycode, many
+  hyphens/digits) and five Turkish text indicators (urgency, money/fine, credential request,
+  prize, address issue), each producing a weighted, human-readable reason
+- Score fusion (`risk = alpha * ml + (1 - alpha) * rules`) with low / medium / high levels
+- `Analyzer` facade: one entry point for end-to-end inference
+- `scripts/evaluate.py`: validation tuning of alpha and thresholds, single test-set
+  comparison of ML only / rules only / hybrid with bootstrap confidence intervals, confusion
+  matrices and an anonymized error analysis; fusion-tuning notebook
+- Masking of personal names after Turkish honorifics in report excerpts
 
 ## [0.1.0] - 2026-11-15
 
@@ -57,6 +61,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - GitHub Actions CI on Python 3.11, 3.12 and 3.13
 - README skeleton, MIT license, pull request template and decision log
 
-[Unreleased]: https://github.com/emirkabacali/smishguard-tr/compare/v0.5.0...HEAD
+[Unreleased]: https://github.com/emirkabacali/smishguard-tr/compare/v1.0.0...HEAD
+[1.0.0]: https://github.com/emirkabacali/smishguard-tr/compare/v0.5.0...v1.0.0
 [0.5.0]: https://github.com/emirkabacali/smishguard-tr/compare/v0.1.0...v0.5.0
 [0.1.0]: https://github.com/emirkabacali/smishguard-tr/releases/tag/v0.1.0
