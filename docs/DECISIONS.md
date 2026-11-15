@@ -123,3 +123,34 @@ considered and why. Newest entries at the bottom.
   (validation, threshold 0.15: precision 0.90, recall 0.37), because the 2010–2011 spam is
   mostly advertising without links. They fire much more on modern smishing patterns (mean
   rule score 0.68 on synthetic smishing vs 0.06 on synthetic hard negatives).
+
+## D-010: Fusion tuning procedure
+
+- **Date:** 2026-11-15
+- **Decision:** `alpha` ∈ {0.9, ..., 0.3} and the decision (= medium) threshold ∈ {0.05, ...,
+  0.95} are grid-searched on validation for the best F1; ties go to lower false positive rate,
+  then higher alpha, then lower threshold. The high threshold is the first value above the
+  medium threshold with ≥ 95% validation precision, raised to at least 0.65. ML-only and
+  rules-only baselines get their own validation-tuned thresholds, so all three systems are
+  compared fairly. Tuned values are stored in `models/fusion_params.json` (read by the
+  `Analyzer`); `config.py` only holds defaults. The test set is evaluated once, with 95%
+  percentile-bootstrap intervals (1,000 resamples).
+- **Alternatives:** Writing tuned values back into `config.py`; tuning on the test set;
+  learning the fusion with a stacked logistic regression.
+- **Rationale:** Generated code edits are fragile and mix configuration with results. A
+  0.05-step grid is coarse on purpose: with 112 validation messages a finer grid would fit
+  noise. The precision floor makes "high" mean "almost certainly malicious"; without the 0.65
+  floor the very confident model produced a high threshold of 0.55 and an almost empty medium
+  band. A stacked model would need a separate calibration split we do not have.
+
+## D-011: Keep the hybrid system although ML-only scored marginally higher on test
+
+- **Date:** 2026-11-15
+- **Decision:** The `Analyzer` and the API use the hybrid score (alpha = 0.9).
+- **Alternatives:** Ship ML only (test F1 0.952 vs 0.942 for hybrid).
+- **Rationale:** The difference is a single message out of 112, and the bootstrap intervals
+  overlap almost completely ([0.903, 0.990] vs [0.885, 0.983]), so the data cannot tell the
+  systems apart. Validation F1 was identical. The hybrid adds what the ML model cannot provide:
+  readable reasons and coverage of modern URL-based patterns (brand impersonation, shorteners,
+  punycode) that do not occur in the 2010–2011 test data. This trade-off is reported openly in
+  the README instead of choosing the system after looking at test results.

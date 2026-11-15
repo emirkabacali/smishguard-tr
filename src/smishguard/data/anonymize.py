@@ -78,6 +78,37 @@ def mask_email(text: str) -> str:
     return _EMAIL_RE.sub(MASK_EMAIL, text)
 
 
+MASK_NAME = "<NAME>"
+
+_UPPER = "A-ZÇĞİÖŞÜ"
+_LOWER = "a-zçğıöşü"
+# Honorific followed by one to three capitalized words: "Sayın Ayşe Yılmaz", "Sn. Ali Veli".
+_HONORIFIC_NAME_RE = re.compile(
+    rf"\b(Sayın|Sayin|SAYIN|Sn\.?|Sevgili|Değerli|Degerli|Bay|Bayan)(\s+)"
+    rf"([{_UPPER}][{_LOWER}]+(?:\s+[{_UPPER}][{_LOWER}]+){{0,2}})"
+)
+# Capitalized words after an honorific that are forms of address, not names.
+_NOT_NAMES = frozenset(
+    {"Müşterimiz", "Musterimiz", "Abonemiz", "AboneMiz", "Üyemiz", "Uyemiz", "Kullanıcı"}
+)
+
+
+def mask_honorific_names(text: str) -> str:
+    """Replace personal names that follow a Turkish honorific with ``<NAME>``.
+
+    Personal names cannot be detected reliably with regular expressions; this only covers the
+    most common SMS pattern ("Sayın Ad Soyad"). Used for report excerpts.
+    """
+
+    def replace(match: re.Match[str]) -> str:
+        honorific, space, words = match.groups()
+        if words.split()[0] in _NOT_NAMES:
+            return match.group(0)
+        return f"{honorific}{space}{MASK_NAME}"
+
+    return _HONORIFIC_NAME_RE.sub(replace, text)
+
+
 def mask_pii(text: str) -> str:
     """Apply all masks. Order matters: IBAN and TCKN contain long digit runs, so they go first."""
     for masker in (mask_email, mask_iban, mask_tckn, mask_phone):

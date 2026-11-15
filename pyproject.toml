@@ -32,6 +32,9 @@ dev = [
     "pytest>=8.0",
     "ruff>=0.6",
 ]
+eval = [
+    "matplotlib>=3.8",
+]
 notebooks = [
     "jupyter>=1.0",
     "matplotlib>=3.8",

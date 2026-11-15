@@ -59,7 +59,9 @@ def main() -> int:
         logger.info("Wrote %s (%d rows)", path.relative_to(config.PROJECT_ROOT), len(part))
 
     summary = summarize(splits)
-    (config.PROCESSED_DIR / "summary.json").write_text(json.dumps(summary, indent=2) + "\n")
+    (config.PROCESSED_DIR / "summary.json").write_text(
+        json.dumps(summary, indent=2) + "\n", encoding="utf-8", newline="\n"
+    )
     for name, counts in summary.items():
         logger.info("%-5s %s", name, counts)
     return 0
