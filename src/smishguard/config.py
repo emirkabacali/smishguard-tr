@@ -99,6 +99,25 @@ MODEL_METADATA_PATH = MODELS_DIR / "metadata.json"
 BASELINE_METRICS_PATH = REPORTS_DIR / "metrics_baseline.json"
 TOP_FEATURES_COUNT = 20
 
+# --- Score fusion and evaluation -----------------------------------------------------------
+# risk = alpha * ml_probability + (1 - alpha) * rule_score. These defaults are used until
+# scripts/evaluate.py has tuned them on the validation set (stored in FUSION_PARAMS_PATH).
+DEFAULT_ALPHA = 0.7
+DEFAULT_MEDIUM_THRESHOLD = 0.35  # risk >= this -> "medium" (and flagged as malicious)
+DEFAULT_HIGH_THRESHOLD = 0.65  # risk >= this -> "high"
+ALPHA_GRID = (0.9, 0.8, 0.7, 0.6, 0.5, 0.4, 0.3)  # order = tie-break preference
+THRESHOLD_GRID = tuple(round(0.05 * i, 2) for i in range(1, 20))  # 0.05 ... 0.95
+HIGH_LEVEL_MIN_PRECISION = 0.95  # "high" must be this precise on validation
+BOOTSTRAP_SAMPLES = 1000
+CONFIDENCE_LEVEL = 0.95
+
+FUSION_PARAMS_PATH = MODELS_DIR / "fusion_params.json"
+TEST_METRICS_PATH = REPORTS_DIR / "metrics_test.json"
+CONFUSION_MATRIX_PATH = REPORTS_DIR / "confusion_matrix.png"
+ERROR_ANALYSIS_PATH = REPORTS_DIR / "error_analysis.md"
+ERROR_NOTES_PATH = REPORTS_DIR / "error_analysis_notes.md"
+ERROR_EXAMPLE_MAX_CHARS = 140
+
 # --- Rule engine -------------------------------------------------------------------------
 # Weight of each rule. rule_score = min(1.0, sum of the weights of the rules that fired).
 RULE_WEIGHTS = {
