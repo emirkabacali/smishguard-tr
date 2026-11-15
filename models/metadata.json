@@ -1,7 +1,7 @@
 {
   "model_name": "logreg",
-  "model_version": "0.1.0",
-  "trained_at": "2026-11-15T09:38:19+00:00",
+  "model_version": "0.5.0",
+  "trained_at": "2026-11-15T09:47:27+00:00",
   "seed": 42,
   "decision_threshold": 0.5,
   "data": {
