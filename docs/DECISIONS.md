@@ -154,3 +154,21 @@ considered and why. Newest entries at the bottom.
   readable reasons and coverage of modern URL-based patterns (brand impersonation, shorteners,
   punycode) that do not occur in the 2010–2011 test data. This trade-off is reported openly in
   the README instead of choosing the system after looking at test results.
+
+## D-012: API design
+
+- **Date:** 2026-11-15
+- **Decision:** FastAPI app built by a `create_app(loader)` factory. The `Analyzer` is loaded
+  once in the lifespan handler and injected into endpoints with `Depends`. If the model file
+  is missing the app still starts: `/health` returns 503 and `/v1/analyze` returns 503 with a
+  hint. Input is limited to 1–1000 characters after stripping whitespace (422 otherwise).
+  Logs are `key=value` lines with length, score, level and latency, never the message text.
+- **Alternatives:** Loading the model at import time or per request; crashing on startup when
+  the model is missing; logging full requests for debugging.
+- **Rationale:** Loading per request would add ~100 ms of disk I/O to every call; import-time
+  loading makes the module impossible to import in tests without a trained model. The factory
+  lets tests inject a model trained on the 20-row fixture, so API tests run in CI without the
+  licensed dataset. A running-but-unhealthy service is easier to diagnose (and to probe from
+  Docker / Kubernetes) than one that exits. SMS texts can contain personal data, so they are
+  kept out of logs entirely (KVKK / GDPR data minimization). 1000 characters covers a long
+  multi-part SMS while bounding the cost of a single request.
