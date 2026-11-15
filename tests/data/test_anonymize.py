@@ -7,6 +7,7 @@ from smishguard.data.anonymize import (
     MASK_TCKN,
     is_valid_tckn,
     mask_email,
+    mask_honorific_names,
     mask_iban,
     mask_phone,
     mask_pii,
@@ -95,6 +96,21 @@ def test_mask_email(email: str) -> None:
 def test_mask_pii_combines_all_masks() -> None:
     text = f"IBAN TR330006100519786457841326, TC {VALID_TCKN}, tel 05321234567, a@b.com"
     assert mask_pii(text) == f"IBAN {MASK_IBAN}, TC {MASK_TCKN}, tel {MASK_PHONE}, {MASK_EMAIL}"
+
+
+@pytest.mark.parametrize(
+    ("text", "expected"),
+    [
+        ("Sayın Ayşe Yılmaz. Siparişiniz hazır", "Sayın <NAME>. Siparişiniz hazır"),
+        ("Sn. Ali Veli, randevunuz yarin", "Sn. <NAME>, randevunuz yarin"),
+        ("Sevgili Mehmet bugun gel", "Sevgili <NAME> bugun gel"),
+        ("Sn. Musterimiz. kargonuz geldi", "Sn. Musterimiz. kargonuz geldi"),
+        ("Degerli musterimiz, fatura hazir", "Degerli musterimiz, fatura hazir"),
+        ("Bugun Ankara'ya gidiyorum", "Bugun Ankara'ya gidiyorum"),
+    ],
+)
+def test_mask_honorific_names(text: str, expected: str) -> None:
+    assert mask_honorific_names(text) == expected
 
 
 def test_mask_pii_is_idempotent() -> None:
