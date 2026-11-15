@@ -121,6 +121,6 @@ def save_model(
         "data": data_summary,
         "validation_metrics": validation_metrics,
     }
-    metadata_path.write_text(json.dumps(metadata, indent=2) + "\n", encoding="utf-8")
+    metadata_path.write_text(json.dumps(metadata, indent=2) + "\n", encoding="utf-8", newline="\n")
     logger.info("Saved model to %s", model_path)
     return metadata

@@ -99,7 +99,7 @@ def main() -> int:
 
     config.REPORTS_DIR.mkdir(parents=True, exist_ok=True)
     config.BASELINE_METRICS_PATH.write_text(
-        json.dumps(report, indent=2, ensure_ascii=False) + "\n", encoding="utf-8"
+        json.dumps(report, indent=2, ensure_ascii=False) + "\n", encoding="utf-8", newline="\n"
     )
     logger.info("Wrote %s", config.BASELINE_METRICS_PATH.relative_to(config.PROJECT_ROOT))
 
