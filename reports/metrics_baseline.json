@@ -1,0 +1,243 @@
+{
+  "selection_metric": "validation f1",
+  "selection_tolerance": 0.01,
+  "model_preference_order": [
+    "logreg",
+    "nb"
+  ],
+  "decision_threshold": 0.5,
+  "cv_folds": 5,
+  "cv_note": "CV folds evaluate real messages only; synthetic rows stay in every fit fold",
+  "data": {
+    "train_rows": 582,
+    "val_rows": 112,
+    "train_synthetic_rows": 62,
+    "train_sha256": "a07f8787b845b7699805eac1ce52afe303a1f8dfbb3d837f692a793d09159f7e"
+  },
+  "models": {
+    "logreg": {
+      "cv_train": {
+        "precision": {
+          "mean": 0.9445,
+          "std": 0.0279
+        },
+        "recall": {
+          "mean": 0.9915,
+          "std": 0.0104
+        },
+        "f1": {
+          "mean": 0.9672,
+          "std": 0.0149
+        }
+      },
+      "validation": {
+        "precision": 0.9608,
+        "recall": 0.9608,
+        "f1": 0.9608,
+        "accuracy": 0.9643,
+        "false_positive_rate": 0.0328,
+        "roc_auc": 0.9981,
+        "tp": 49,
+        "fp": 2,
+        "tn": 59,
+        "fn": 2
+      }
+    },
+    "nb": {
+      "cv_train": {
+        "precision": {
+          "mean": 0.9229,
+          "std": 0.0331
+        },
+        "recall": {
+          "mean": 0.9915,
+          "std": 0.0104
+        },
+        "f1": {
+          "mean": 0.9555,
+          "std": 0.016
+        }
+      },
+      "validation": {
+        "precision": 0.9434,
+        "recall": 0.9804,
+        "f1": 0.9615,
+        "accuracy": 0.9643,
+        "false_positive_rate": 0.0492,
+        "roc_auc": 0.9974,
+        "tp": 50,
+        "fp": 3,
+        "tn": 58,
+        "fn": 1
+      }
+    }
+  },
+  "best_model": "logreg",
+  "saved_model": "logreg",
+  "top_features": {
+    "malicious": [
+      {
+        "feature": "word__com",
+        "weight": 0.9952
+      },
+      {
+        "feature": "word__https",
+        "weight": 0.8947
+      },
+      {
+        "feature": "word__ve",
+        "weight": 0.8437
+      },
+      {
+        "feature": "word__icin",
+        "weight": 0.8047
+      },
+      {
+        "feature": "word__indirim",
+        "weight": 0.7762
+      },
+      {
+        "feature": "word__com tr",
+        "weight": 0.7258
+      },
+      {
+        "feature": "word__ozel",
+        "weight": 0.7139
+      },
+      {
+        "feature": "word__tl",
+        "weight": 0.7086
+      },
+      {
+        "feature": "word__hemen",
+        "weight": 0.6967
+      },
+      {
+        "feature": "char__! ",
+        "weight": 0.6897
+      },
+      {
+        "feature": "char__tl",
+        "weight": 0.6885
+      },
+      {
+        "feature": "word__tr",
+        "weight": 0.6515
+      },
+      {
+        "feature": "char__le",
+        "weight": 0.6425
+      },
+      {
+        "feature": "word__a",
+        "weight": 0.627
+      },
+      {
+        "feature": "word__1",
+        "weight": 0.6002
+      },
+      {
+        "feature": "word__sadece",
+        "weight": 0.5947
+      },
+      {
+        "feature": "char__ i",
+        "weight": 0.5934
+      },
+      {
+        "feature": "char__ind",
+        "weight": 0.5885
+      },
+      {
+        "feature": "char__eri",
+        "weight": 0.5853
+      },
+      {
+        "feature": "word__hediye",
+        "weight": 0.5651
+      }
+    ],
+    "legitimate": [
+      {
+        "feature": "word__ben",
+        "weight": -0.7831
+      },
+      {
+        "feature": "word__mi",
+        "weight": -0.6459
+      },
+      {
+        "feature": "char__m ",
+        "weight": -0.6435
+      },
+      {
+        "feature": "char__im ",
+        "weight": -0.5479
+      },
+      {
+        "feature": "word__var",
+        "weight": -0.535
+      },
+      {
+        "feature": "char__ben",
+        "weight": -0.5045
+      },
+      {
+        "feature": "char__ ben",
+        "weight": -0.4942
+      },
+      {
+        "feature": "char__? ",
+        "weight": -0.492
+      },
+      {
+        "feature": "word__kanka",
+        "weight": -0.4786
+      },
+      {
+        "feature": "word__00",
+        "weight": -0.4429
+      },
+      {
+        "feature": "word__bi",
+        "weight": -0.4402
+      },
+      {
+        "feature": "word__yarin",
+        "weight": -0.4297
+      },
+      {
+        "feature": "word__tamam",
+        "weight": -0.4125
+      },
+      {
+        "feature": "char__ n",
+        "weight": -0.4123
+      },
+      {
+        "feature": "word__gibi",
+        "weight": -0.4035
+      },
+      {
+        "feature": "char__ ge",
+        "weight": -0.3924
+      },
+      {
+        "feature": "word__ne",
+        "weight": -0.3862
+      },
+      {
+        "feature": "char__bi ",
+        "weight": -0.3742
+      },
+      {
+        "feature": "char__sin ",
+        "weight": -0.3687
+      },
+      {
+        "feature": "char__ge",
+        "weight": -0.3685
+      }
+    ]
+  }
+}
