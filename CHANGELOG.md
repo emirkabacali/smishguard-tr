@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- REST API (FastAPI): `GET /health`, `POST /v1/analyze` with pydantic request/response
+  schemas, model loaded once at startup, 503 when the model is missing, privacy-preserving
+  `key=value` logging
+
 ## [0.5.0] - 2026-11-15
 
 ### Added

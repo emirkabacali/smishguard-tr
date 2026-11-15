@@ -118,6 +118,9 @@ ERROR_ANALYSIS_PATH = REPORTS_DIR / "error_analysis.md"
 ERROR_NOTES_PATH = REPORTS_DIR / "error_analysis_notes.md"
 ERROR_EXAMPLE_MAX_CHARS = 140
 
+# --- API -----------------------------------------------------------------------------------
+API_MAX_TEXT_LENGTH = 1000  # characters; a long SMS is ~10 segments of 153 characters
+
 # --- Rule engine -------------------------------------------------------------------------
 # Weight of each rule. rule_score = min(1.0, sum of the weights of the rules that fired).
 RULE_WEIGHTS = {
