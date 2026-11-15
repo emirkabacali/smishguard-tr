@@ -14,6 +14,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   leakage-safe stratified split (`scripts/build_dataset.py`)
 - Curated dataset with 42 synthetic smishing messages and 20 hard negatives (defanged)
 - Dataset card (`DATA.md`) and exploratory analysis notebook
+- Baseline text model: TF-IDF char (2–5) + word (1–2) n-grams with Logistic Regression,
+  Multinomial Naive Bayes for comparison, 5-fold CV, validation comparison, model persistence
+  with metadata, top n-gram explanation (`scripts/train.py`)
 
 ## [0.1.0] - 2026-11-15
 

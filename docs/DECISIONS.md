@@ -71,3 +71,33 @@ considered and why. Newest entries at the bottom.
 - **Rationale:** The raw data contains real (if old) phone numbers in irregular formats.
   Masking an occasional order number costs almost nothing, while leaking a personal number is
   a privacy violation. The checksum keeps random 11-digit numbers readable.
+
+## D-007: Character n-grams + word n-grams for Turkish
+
+- **Date:** 2026-11-15
+- **Decision:** The text model concatenates TF-IDF over `char_wb` 2–5-grams and word 1–2-grams
+  (`sublinear_tf=True`). Before vectorizing, text is PII-masked, lowercased with Turkish rules
+  and folded to ASCII.
+- **Alternatives:** Word n-grams only; stemming with a Turkish morphological analyzer (e.g.
+  Zemberek); transformer embeddings (BERTurk).
+- **Rationale:** Turkish is agglutinative: *kargo, kargonuz, kargonuzu, kargoya* are four
+  different words but share character n-grams. Character n-grams capture stems and suffixes
+  without a stemmer, and they tolerate typos, abbreviations (*slm, cnm*) and missing Turkish
+  letters, all common in SMS. Word n-grams add whole-phrase signals (*hemen arayin*). ASCII
+  folding merges *ödeme* and *odeme*, which matters with only ~600 training messages. A
+  stemmer adds a Java dependency, and BERTurk is kept as an optional experiment (Phase 9).
+
+## D-008: Model selection and cross-validation policy
+
+- **Date:** 2026-11-15
+- **Decision:** Candidates are ordered by preference (Logistic Regression, then Multinomial
+  Naive Bayes). A less preferred model is selected only if its validation F1 is higher by more
+  than 0.01. Cross-validation folds evaluate real messages only; synthetic rows are added to
+  every fit fold.
+- **Alternatives:** Plain "highest validation F1 wins"; standard k-fold over all training rows.
+- **Rationale:** On the first run NB scored F1 0.9615 versus 0.9608 for LogReg on 112
+  validation messages, a difference smaller than one message. LogReg had higher CV F1, lower
+  false positive rate and higher ROC AUC, and it provides two things the rest of the system
+  needs: interpretable coefficients and better-calibrated probabilities for score fusion
+  (NB probabilities are typically pushed towards 0 or 1). Evaluating CV folds on real messages
+  only keeps the D-005 policy consistent inside cross-validation.
