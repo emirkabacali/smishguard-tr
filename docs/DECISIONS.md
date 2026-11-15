@@ -101,3 +101,25 @@ considered and why. Newest entries at the bottom.
   needs: interpretable coefficients and better-calibrated probabilities for score fusion
   (NB probabilities are typically pushed towards 0 or 1). Evaluating CV folds on real messages
   only keeps the D-005 policy consistent inside cross-validation.
+
+## D-009: Rule engine design
+
+- **Date:** 2026-11-15
+- **Decision:** Eleven hand-written rules (6 URL, 5 text) with hand-set weights in
+  `config.py`; `rule_score = min(1, sum of fired weights)`. Brand impersonation is suppressed
+  for an allowlist of official brand domains and for restricted Turkish zones (`gov.tr`,
+  `edu.tr`, ...). Bare domains without `http://`/`www.` count as links only for a list of
+  common TLDs. Text keywords are left-anchored stems matched on ASCII-folded text, and a rule
+  can have veto patterns (e.g. "do not share this code" disables `CREDENTIAL_REQUEST`).
+- **Alternatives:** Learning rule weights with a second model; a domain reputation or WHOIS
+  service; matching brands with edit distance.
+- **Rationale:** The rules exist to *explain*, so each must be readable and testable in
+  isolation; learned weights would turn them into another black box and could overfit the
+  ~60 synthetic URL examples. Weights express domain knowledge: a brand name in a non-official
+  domain or a raw IP link is stronger evidence than the word "TL". External services are out
+  of scope (offline, no network access). The bare-domain restriction avoids treating
+  "geldi.de" as a German domain.
+- **Known effect:** On real TurkishSMS messages the rules are precise but have low recall
+  (validation, threshold 0.15: precision 0.90, recall 0.37), because the 2010–2011 spam is
+  mostly advertising without links. They fire much more on modern smishing patterns (mean
+  rule score 0.68 on synthetic smishing vs 0.06 on synthetic hard negatives).
