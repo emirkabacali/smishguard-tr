@@ -7,7 +7,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.5.0] - 2026-11-15
+
 ### Added
+
+- Score fusion (`risk = alpha * ml + (1 - alpha) * rules`) with low / medium / high levels
+- `Analyzer` facade: one entry point for end-to-end inference
+- `scripts/evaluate.py`: validation tuning of alpha and thresholds, single test-set comparison
+  of ML only / rules only / hybrid with bootstrap confidence intervals, confusion matrices and
+  an anonymized error analysis; fusion-tuning notebook
+- Masking of personal names after Turkish honorifics in report excerpts
 
 - Data pipeline: reproducible TurkishSMS download (pinned revision + SHA-256), loaders with
   schema validation, Turkish-aware normalization, PII masking, deduplication and a
@@ -31,5 +40,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - GitHub Actions CI on Python 3.11, 3.12 and 3.13
 - README skeleton, MIT license, pull request template and decision log
 
-[Unreleased]: https://github.com/emirkabacali/smishguard-tr/compare/v0.1.0...HEAD
+[Unreleased]: https://github.com/emirkabacali/smishguard-tr/compare/v0.5.0...HEAD
+[0.5.0]: https://github.com/emirkabacali/smishguard-tr/compare/v0.1.0...v0.5.0
 [0.1.0]: https://github.com/emirkabacali/smishguard-tr/releases/tag/v0.1.0

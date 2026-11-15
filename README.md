@@ -6,9 +6,9 @@
 Explainable smishing (SMS phishing) risk analysis for Turkish messages — a hybrid of a
 TF-IDF + Logistic Regression text model and an interpretable rule engine.
 
-> **Work in progress.** The project is being built in small, reviewed phases. So far the
-> repository scaffold and the data pipeline exist (see [DATA.md](DATA.md)); the model, rule
-> engine, API and demo are not implemented yet.
+> **Work in progress.** The project is being built in small, reviewed phases. The data
+> pipeline ([DATA.md](DATA.md)), text model, rule engine, score fusion and evaluation
+> ([reports/](reports/)) exist; the REST API and demo UI are not implemented yet.
 
 ## Planned
 
