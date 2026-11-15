@@ -41,6 +41,10 @@ dev = [
     "pytest>=8.0",
     "pytest-cov>=5.0",
     "ruff>=0.6",
+    "streamlit>=1.35",
+]
+demo = [
+    "streamlit>=1.35",
 ]
 eval = [
     "matplotlib>=3.8",
