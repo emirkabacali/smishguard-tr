@@ -10,9 +10,19 @@ TF-IDF + Logistic Regression text model and an interpretable rule engine.
 
 > **Work in progress.** The project is being built in small, reviewed phases. The data
 > pipeline ([DATA.md](DATA.md)), text model, rule engine, score fusion, evaluation
-> ([reports/](reports/)), REST API and Docker image exist; the demo UI is next.
+> ([reports/](reports/)), REST API, Docker image and demo UI exist; final documentation
+> follows.
 
 This is a research / portfolio project, not a production security product.
+
+## Demo
+
+![Streamlit demo analyzing a fake cargo message](docs/assets/demo.png)
+
+```bash
+pip install -e ".[demo]"
+streamlit run app/streamlit_app.py
+```
 
 ## Quickstart
 
