@@ -17,6 +17,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - CI: coverage threshold (80%) and a Docker build + smoke-test job; coverage, Python and
   license badges
 
+- Streamlit demo (`app/streamlit_app.py`) with example selector, colored risk level, score
+  breakdown and reasons; it reuses the `Analyzer`; screenshot in the README
+
 ### Changed
 
 - `pandas` and `pyarrow` moved to the new `data` extra; the API needs only core dependencies
