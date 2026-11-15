@@ -17,6 +17,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Baseline text model: TF-IDF char (2–5) + word (1–2) n-grams with Logistic Regression,
   Multinomial Naive Bayes for comparison, 5-fold CV, validation comparison, model persistence
   with metadata, top n-gram explanation (`scripts/train.py`)
+- Explainable rule engine: offline URL extraction with `tldextract`, six URL indicators
+  (brand impersonation, shortener, suspicious TLD, IP address, punycode, many hyphens/digits)
+  and five Turkish text indicators (urgency, money/fine, credential request, prize, address
+  issue), each producing a weighted, human-readable reason
 
 ## [0.1.0] - 2026-11-15
 
