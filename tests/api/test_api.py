@@ -1,4 +1,6 @@
 import logging
+import subprocess
+import sys
 
 import pandas as pd
 import pytest
@@ -103,6 +105,24 @@ def test_message_text_is_never_logged(client: TestClient, caplog: pytest.LogCapt
         client.post("/v1/analyze", json={"text": secret})
     assert "analyze length=" in caplog.text
     assert "GIZLI" not in caplog.text
+
+
+def test_api_runs_without_pandas() -> None:
+    # The Docker image ships only the core dependencies; pandas/pyarrow are a "data" extra.
+    code = (
+        "import sys\n"
+        "class Block:\n"
+        "    def find_spec(self, name, path=None, target=None):\n"
+        "        if name.split('.')[0] in ('pandas', 'pyarrow'):\n"
+        "            raise ImportError(name)\n"
+        "sys.meta_path.insert(0, Block())\n"
+        "from fastapi.testclient import TestClient\n"
+        "from smishguard.api.main import create_app\n"
+        "with TestClient(create_app()) as client:\n"
+        "    client.get('/health')\n"
+        "assert 'pandas' not in sys.modules\n"
+    )
+    subprocess.run([sys.executable, "-c", code], check=True)
 
 
 def test_openapi_docs_are_available(client: TestClient) -> None:
