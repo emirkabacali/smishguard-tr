@@ -25,10 +25,14 @@ dependencies = [
     "pyarrow>=15",
     "scikit-learn>=1.4",
     "tldextract>=5.0",
+    "fastapi>=0.115",
+    "pydantic>=2.7",
+    "uvicorn[standard]>=0.30",
 ]
 
 [project.optional-dependencies]
 dev = [
+    "httpx>=0.27",
     "pytest>=8.0",
     "ruff>=0.6",
 ]
