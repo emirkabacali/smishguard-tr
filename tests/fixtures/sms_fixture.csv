@@ -1,0 +1,21 @@
+text,label,category,source
+"PTT: Kargonuz adres eksikligi nedeniyle bekliyor, hemen guncelleyin: hxxps://ptt-kargo[.]xyz",1,cargo,synthetic
+"HGS gecis ihlaliniz var. 24 saat icinde odemezseniz ceza uygulanacak: hxxps://hgs-ceza[.]top",1,toll_fine,synthetic
+"TEBRIKLER! Cekiliste iPhone kazandiniz. Hediyenizi almak icin tiklayin hxxps://bit[.]ly/hediye1",1,prize,synthetic
+"Bankaniz: Hesabiniz askiya alindi. Sifrenizi girerek aktif edin hxxps://banka-dogrula[.]click",1,bank,synthetic
+"e-Devlet: 2.000 TL iade odemeniz hazir. Kart bilgilerinizle basvurun hxxps://edevlet-iade[.]info",1,e_government,synthetic
+"Size ozel %50 indirim firsati! Hemen SMS ile ALIM yazip 4545e gonderin, kampanya son gun.",1,generic_spam,synthetic
+"Kripto ile gunluk %10 kazanc! Ucretsiz VIP gruba katilin hxxps://kripto-vip[.]shop",1,investment,synthetic
+"Faturanizdan fazla odeme alindi, iade icin kart bilgilerinizi guncelleyin hxxps://fatura-iade[.]live",1,telecom,synthetic
+"Kargonuz gumrukte, 19 TL ucreti odemezseniz iade edilecek hxxps://kargo-gumruk[.]xyz",1,cargo,synthetic
+"BEDAVA hediye ceki kazandiniz! Son 2 saat, hemen kullanin <PHONE>",1,prize,synthetic
+"aksam yemege geliyor musun? annem seni de soruyor",0,other,synthetic
+"tamam kanka yarin okulda gorusuruz",0,other,synthetic
+"Dogrulama kodunuz 482913. Bu kodu kimseyle paylasmayin.",0,bank,synthetic
+"Yurtici Kargo: gonderiniz bugun dagitima cikmistir.",0,cargo,synthetic
+"MHRS: yarin saat 10:30 icin randevunuz olusturulmustur.",0,e_government,synthetic
+"toplanti 3'te, sunumu getirmeyi unutma",0,other,synthetic
+"abi kopruden gectim, hgs bakiyem yetti mi bakar misin",0,toll_fine,synthetic
+"Kartinizla 120 TL market harcamasi yapilmistir.",0,bank,synthetic
+"hocam odevi yarin teslim edecegim, kusura bakmayin",0,other,synthetic
+"cnm eve gelirken ekmek alir misin",0,other,synthetic

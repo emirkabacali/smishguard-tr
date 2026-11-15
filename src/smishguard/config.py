@@ -79,3 +79,22 @@ TRAIN_RATIO = 0.70
 VAL_RATIO = 0.15
 TEST_RATIO = 0.15
 SPLIT_NAMES = ("train", "val", "test")
+
+# --- Text model --------------------------------------------------------------------------
+CHAR_NGRAM_RANGE = (2, 5)
+WORD_NGRAM_RANGE = (1, 2)
+TFIDF_MIN_DF = 1
+LOGREG_C = 1.0
+LOGREG_MAX_ITER = 2000
+NB_ALPHA = 0.1
+CV_FOLDS = 5
+# Model order = preference order. A later model must beat the preferred one by more than this
+# validation-F1 margin (about one message on a ~110-message validation set) to be selected.
+MODEL_SELECTION_TOLERANCE = 0.01
+# Probability above which the text model alone calls a message malicious.
+ML_DECISION_THRESHOLD = 0.5
+
+TEXT_MODEL_PATH = MODELS_DIR / "text_model.joblib"
+MODEL_METADATA_PATH = MODELS_DIR / "metadata.json"
+BASELINE_METRICS_PATH = REPORTS_DIR / "metrics_baseline.json"
+TOP_FEATURES_COUNT = 20
