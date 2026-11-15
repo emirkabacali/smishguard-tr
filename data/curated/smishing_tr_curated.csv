@@ -1,0 +1,63 @@
+text,label,category,source,collected_at,notes
+PTT: Kargonuz adres eksikligi nedeniyle bekliyor. 24 saat icinde guncelleyin: hxxps://ptt-kargo-takip[.]xyz,1,cargo,synthetic,2026-11-15,address issue + brand in domain + suspicious TLD
+PTT KARGO: Gonderiniz teslim edilemedi. Adres bilgilerinizi dogrulamak icin tiklayin hxxps://pttgonderi-takip[.]top/tr,1,cargo,synthetic,2026-11-15,delivery failure lure
+"Yurtici Kargo: Paketiniz gumrukte bekliyor. 19,90 TL gumruk ucretini odemezseniz iade edilecektir: hxxps://yurtici-gumruk[.]shop",1,cargo,synthetic,2026-11-15,customs fee lure
+"Aras Kargo: Siparisiniz dagitima cikamadi, adres eksik. Son gun bugun! hxxps://bit[.]ly/3xArAs9",1,cargo,synthetic,2026-11-15,shortener + urgency
+MNG Kargo: 2 adet teslim edilemeyen paketiniz var. Yeniden gonderim icin 12 TL odeme yapin: hxxps://mngkargo-teslimat[.]click,1,cargo,synthetic,2026-11-15,small payment lure
+"Sayin musterimiz, kargonuz depoda bekletiliyor. Teslimat icin adresinizi hemen guncelleyin: hxxp://185[.]62[.]13[.]77/kargo",1,cargo,synthetic,2026-11-15,IP address URL
+Kargonuz hasarli oldugu icin iade sureci baslatildi. Iptal etmek icin: hxxps://kargo-iptal-islem[.]live,1,cargo,synthetic,2026-11-15,generic cargo scam
+e-Devlet: Adiniza 2.450 TL tazminat odemesi tanimlanmistir. Almak icin basvurunuzu yapin: hxxps://edevlet-tazminat[.]info,1,e_government,synthetic,2026-11-15,compensation lure + brand
+T.C. Saglik Bakanligi: Adiniza ait iade bulunmaktadir. TC kimlik ve kart bilgilerinizle basvurun: hxxps://turkiye-iade-sorgu[.]xyz,1,e_government,synthetic,2026-11-15,credential + card request
+e-Devlet sifreniz 24 saat icinde iptal edilecektir. Yenilemek icin tiklayin: hxxps://edevlet-giris-dogrula[.]com,1,e_government,synthetic,2026-11-15,credential + urgency
+Gelir Idaresi: 1.280 TL vergi iadeniz hazir. Iade icin kart bilgilerinizi girin: hxxps://gib-vergi-iade[.]online,1,e_government,synthetic,2026-11-15,tax refund lure
+SGK: Emeklilik ikramiye farkiniz yatirilmak uzere bekliyor. Son basvuru bugun: hxxps://sgk-ikramiye[.]site,1,e_government,synthetic,2026-11-15,pension bonus lure
+Aile Destek Programi kapsaminda 3.500 TL odemeniz onaylandi. Hesabiniza aktarmak icin: hxxps://ailedestek-odeme[.]xyz,1,e_government,synthetic,2026-11-15,social aid lure
+Turkiye.gov: Elektrik faturanizdan 640 TL fazla tahsilat iadesi yapilacaktir. Basvuru: hxxps://fatura-iade-edevlet[.]top,1,e_government,synthetic,2026-11-15,utility refund lure
+HGS: Odenmemis gecis ihlaliniz bulunmaktadir. 24 saat icinde odemezseniz 10 kat ceza uygulanacaktir: hxxps://hgs-ihlal-odeme[.]xyz,1,toll_fine,synthetic,2026-11-15,toll violation + fine + urgency
+"OGS gecis borcunuz 187,50 TL. Cezali duruma dusmemek icin hemen odeyin: hxxps://ogs-borc-sorgula[.]click",1,toll_fine,synthetic,2026-11-15,toll debt
+"KGM: Aracinizin kopru gecis ucreti odenmemistir. Son gun bugun, ceza almamak icin: hxxps://bit[.]ly/kgmOdeme",1,toll_fine,synthetic,2026-11-15,shortener + fine
+Trafik cezaniz e-Devlet sistemine islenmistir. Indirimli odeme icin son gun: hxxps://trafik-ceza-indirim[.]live,1,toll_fine,synthetic,2026-11-15,traffic fine lure
+Otoyol gecis ihlali: Plakaniza 2 adet ihlal kaydedildi. Odeme icin hxxps://xn--otoyol-gei-ihlal-zpb[.]com,1,toll_fine,synthetic,2026-11-15,punycode domain
+Ziraat Bankasi: Hesabiniz guvenlik nedeniyle askiya alinmistir. Aktif etmek icin: hxxps://ziraat-guvenlik-dogrulama[.]xyz,1,bank,synthetic,2026-11-15,account suspended + brand
+Garanti BBVA: Kartinizdan 4.999 TL supheli islem yapildi. Siz degilseniz hemen iptal edin: hxxps://garanti-iptal-islem[.]com,1,bank,synthetic,2026-11-15,fake fraud alert
+"Akbank: Bonus puaniniz 1.250 TL'ye ulasti, bugun kullanmazsaniz silinecek: hxxps://akbank-puan[.]shop",1,bank,synthetic,2026-11-15,points expiry lure
+Is Bankasi: Mobil sifreniz bloke olmustur. Sifrenizi ve dogrulama kodunu girerek blokeyi kaldirin: hxxps://isbank-mobil-acil[.]top,1,bank,synthetic,2026-11-15,credential + OTP request
+Bankaniz guvenlik birimi: size gelen dogrulama kodunu temsilcimizle paylasiniz. Aksi halde hesabiniz kapatilacaktir.,1,bank,synthetic,2026-11-15,OTP social engineering without link
+Kredi kartiniza 25.000 TL limit artisi onaylandi. Onaylamak icin kart bilgilerinizi girin: hxxps://kart-limit-artis[.]info,1,bank,synthetic,2026-11-15,limit increase lure
+"Sayin musteri, IBAN bilgileriniz guncellenmedigi icin hesabiniz kisitlanacaktir. Hemen arayin: <PHONE>",1,bank,synthetic,2026-11-15,phone call lure
+TEBRIKLER! Turkcell cekilisinde iPhone 16 kazandiniz. Hediyenizi almak icin kargo ucreti 29 TL: hxxps://turkcell-hediye[.]xyz,1,prize,synthetic,2026-11-15,prize + brand
+Migros'tan 1000 TL hediye ceki kazandiniz! Son 2 saat icinde kullanin: hxxps://bit[.]ly/migrosHediye,1,prize,synthetic,2026-11-15,gift voucher lure
+Cekilis sonucu: <NAME> adina kayitli numara 50.000 TL odul kazandi. Odulu almak icin hxxps://odul-teslim[.]live,1,prize,synthetic,2026-11-15,lottery lure
+"Yilbasi ozel! Ilk 100 kisiye BEDAVA Airfryer. Hemen basvur, stoklar tukeniyor: hxxps://hediye-airfryer[.]shop",1,prize,synthetic,2026-11-15,free product lure
+Bayram ikramiyesi kampanyasi: 2.000 TL hediye para kazandiniz. Hesabiniza yatirmak icin tiklayin hxxps://ikramiye-hediye[.]click,1,prize,synthetic,2026-11-15,holiday bonus lure
+"Gunluk %8 garantili kazanc! Uzman ekibimizle borsada 5.000 TL ile baslayin, WhatsApp grubumuza katilin: hxxps://borsa-vip-grup[.]xyz",1,investment,synthetic,2026-11-15,guaranteed return investment scam
+Kripto yatirimi ile ayda 50.000 TL kazanin. Ilk yatiriminiza %100 bonus! Kayit: hxxps://kripto-kazanc[.]top,1,investment,synthetic,2026-11-15,crypto investment scam
+"Dolandirildiysaniz paranizi geri aliyoruz! Avukat ekibimiz hemen sizi arayacak, basvuru: hxxps://para-iade-hukuk[.]info",1,investment,synthetic,2026-11-15,recovery scam
+"Altin fiyatlari ucuyor! Yatirim danismanimiz sizi arayacak, hemen kaydolun: hxxps://bit[.]ly/altinYatirim",1,investment,synthetic,2026-11-15,gold investment lure
+Vodafone: Faturanizdan 180 TL fazla odeme alindi. Iade icin kart bilgilerinizi guncelleyin: hxxps://vodafone-iade-islem[.]xyz,1,telecom,synthetic,2026-11-15,telecom refund + brand
+Turk Telekom: Hattiniz 24 saat icinde kapatilacaktir. Kimlik dogrulamasi yapin: hxxps://turktelekom-hat-dogrulama[.]top,1,telecom,synthetic,2026-11-15,line suspension
+Turkcell: 50 GB hediye internetiniz tanimlandi. Aktiflestirmek icin sifrenizi girin: hxxps://turkcell-50gb[.]click,1,telecom,synthetic,2026-11-15,free data + credential
+Hattiniza ait 3 adet odenmemis fatura bulunmaktadir. Hat kapanmadan odeme yapin: hxxps://fatura-ode-hemen[.]live,1,telecom,synthetic,2026-11-15,unpaid bill lure
+Netflix uyeliginiz odeme hatasi nedeniyle askiya alindi. Kart bilgilerinizi guncelleyin: hxxps://netflix-tr-odeme[.]com,1,other,synthetic,2026-11-15,subscription payment lure
+Sahibinden ilaniniz icin alici odemeyi yapti. Parayi almak icin kart bilgilerinizi girin: hxxps://sahibinden-guvenli-odeme[.]xyz,1,other,synthetic,2026-11-15,marketplace payment scam
+Enerjisa: Elektrik aboneliginiz borc nedeniyle yarin kesilecektir. Hemen odeyin: hxxps://bit[.]ly/enerjisaBorc,1,other,synthetic,2026-11-15,utility disconnection threat
+PTT: 1234ABC takip numarali gonderiniz subemize ulasti. Detaylar icin hxxps://gonderitakip[.]ptt[.]gov[.]tr adresini ziyaret edebilirsiniz.,0,cargo,synthetic,2026-11-15,hard negative: official PTT notice
+Yurtici Kargo: 7G2K91 nolu gonderiniz bugun dagitima cikmistir. Takip: hxxps://www[.]yurticikargo[.]com,0,cargo,synthetic,2026-11-15,hard negative: official cargo notice
+Aras Kargo: Siparisiniz teslim edildi. Bizi tercih ettiginiz icin tesekkur ederiz.,0,cargo,synthetic,2026-11-15,hard negative: delivery confirmation
+"anne kargo geldi mi? odemeyi kapida yaptim zaten, sen sadece teslim al",0,cargo,synthetic,2026-11-15,hard negative: personal message about cargo
+Dogrulama kodunuz 482913. Bu kodu kimseyle paylasmayin. Banka calisanlari bu kodu asla istemez.,0,bank,synthetic,2026-11-15,hard negative: OTP message
+"Garanti BBVA: Kartinizla 249,90 TL tutarinda MIGROS harcamasi yapilmistir. Bilginize.",0,bank,synthetic,2026-11-15,hard negative: transaction notice
+"Ziraat Bankasi: Hesabiniza 15.400,00 TL maas odemesi yatirilmistir.",0,bank,synthetic,2026-11-15,hard negative: salary notice
+"Kredi karti ekstreniz hazir. Son odeme tarihi 25.11.2026, asgari tutar 1.200 TL. Odemelerinizi mobil uygulamamizdan yapabilirsiniz.",0,bank,synthetic,2026-11-15,hard negative: statement reminder
+e-Devlet sifreniz ile giris yapildi. Bu islemi siz yapmadiysaniz hxxps://www[.]turkiye[.]gov[.]tr uzerinden sifrenizi degistirin.,0,e_government,synthetic,2026-11-15,hard negative: official login notice
+MHRS: 18.11.2026 tarihinde saat 10:30 icin Dahiliye randevunuz olusturulmustur.,0,e_government,synthetic,2026-11-15,hard negative: appointment reminder
+Nufus Mudurlugu: Kimlik karti basvurunuz icin randevunuz yarin saat 14:00'tedir. Lutfen eski kimliginizi getiriniz.,0,e_government,synthetic,2026-11-15,hard negative: official reminder
+HGS bakiyeniz 50 TL'nin altina dusmustur. Yukleme islemlerinizi PTT subelerinden veya bankanizdan yapabilirsiniz.,0,toll_fine,synthetic,2026-11-15,hard negative: toll balance info
+"abi kopruden gectim ama hgs okumadi galiba, ceza gelir mi sence?",0,toll_fine,synthetic,2026-11-15,hard negative: personal message about tolls
+"Turkcell: Kasim ayi faturaniz 349,00 TL'dir. Son odeme tarihi 28.11.2026.",0,telecom,synthetic,2026-11-15,hard negative: bill notice
+Vodafone: Tarifenize 10 GB ek internet tanimlanmistir. Iyi kullanimlar dileriz.,0,telecom,synthetic,2026-11-15,hard negative: package notice
+"Tebrikler, sinavi gectin! Aksam kutlamaya cikalim mi?",0,prize,synthetic,2026-11-15,hard negative: congratulations without prize
+"hocam odevi son gun yarin degil mi, hemen yollarsaniz sevinirim",0,other,synthetic,2026-11-15,hard negative: urgency words in personal message
+"Siparisiniz alinmistir. Toplam tutar 1.249,00 TL. Siparis detaylari icin uygulamamizi kontrol edebilirsiniz.",0,other,synthetic,2026-11-15,hard negative: order confirmation
+"Toplantimiz yarin 09:00'da, sunum dosyasini aksama kadar gonderebilir misin?",0,other,synthetic,2026-11-15,hard negative: work message
+Eczane nobet hatirlatmasi: Bu aksam mahallenizdeki nobetci eczane Sifa Eczanesi'dir.,0,other,synthetic,2026-11-15,hard negative: local service info

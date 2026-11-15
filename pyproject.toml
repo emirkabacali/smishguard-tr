@@ -20,12 +20,20 @@ classifiers = [
     "Topic :: Text Processing :: Linguistic",
 ]
 # Runtime dependencies are added phase by phase, only when the code needs them.
-dependencies = []
+dependencies = [
+    "pandas>=2.2",
+    "pyarrow>=15",
+    "scikit-learn>=1.4",
+]
 
 [project.optional-dependencies]
 dev = [
     "pytest>=8.0",
     "ruff>=0.6",
+]
+notebooks = [
+    "jupyter>=1.0",
+    "matplotlib>=3.8",
 ]
 
 [project.urls]
@@ -51,4 +59,4 @@ known-first-party = ["smishguard"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
-addopts = "-ra --strict-markers"
+addopts = "-ra --strict-markers --import-mode=importlib"
