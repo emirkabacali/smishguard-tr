@@ -7,6 +7,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- Data pipeline: reproducible TurkishSMS download (pinned revision + SHA-256), loaders with
+  schema validation, Turkish-aware normalization, PII masking, deduplication and a
+  leakage-safe stratified split (`scripts/build_dataset.py`)
+- Curated dataset with 42 synthetic smishing messages and 20 hard negatives (defanged)
+- Dataset card (`DATA.md`) and exploratory analysis notebook
+
 ## [0.1.0] - 2026-11-15
 
 ### Added
