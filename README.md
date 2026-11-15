@@ -1,6 +1,8 @@
 # SmishGuard-TR
 
 [![CI](https://github.com/emirkabacali/smishguard-tr/actions/workflows/ci.yml/badge.svg)](https://github.com/emirkabacali/smishguard-tr/actions/workflows/ci.yml)
+[![Coverage](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fraw.githubusercontent.com%2Femirkabacali%2Fsmishguard-tr%2Fmain%2Freports%2Fcoverage.json&query=%24.percent&suffix=%25&label=coverage&color=brightgreen)](reports/coverage.json)
+[![Python](https://img.shields.io/badge/python-3.11%20%7C%203.12%20%7C%203.13-blue.svg)](pyproject.toml)
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 
 Explainable smishing (SMS phishing) risk analysis for Turkish messages — a hybrid of a
@@ -8,7 +10,7 @@ TF-IDF + Logistic Regression text model and an interpretable rule engine.
 
 > **Work in progress.** The project is being built in small, reviewed phases. The data
 > pipeline ([DATA.md](DATA.md)), text model, rule engine, score fusion, evaluation
-> ([reports/](reports/)) and REST API exist; Docker packaging and the demo UI are next.
+> ([reports/](reports/)), REST API and Docker image exist; the demo UI is next.
 
 This is a research / portfolio project, not a production security product.
 
@@ -17,7 +19,7 @@ This is a research / portfolio project, not a production security product.
 ```bash
 python -m venv .venv
 # Windows: .venv\Scripts\activate    Linux/macOS: source .venv/bin/activate
-pip install -e ".[dev]"
+pip install -e ".[dev]"            # API only: pip install -e .   scripts: add [data]
 
 python scripts/download_data.py     # TurkishSMS (academic license, not in the repo)
 python scripts/build_dataset.py     # clean, mask PII, deduplicate, split
@@ -63,11 +65,26 @@ curl -X POST http://localhost:8000/v1/analyze \
 (empty, whitespace-only or longer than 1000 characters) returns `422`. Message texts are
 never logged.
 
+## Docker
+
+The image contains only the code and pinned core dependencies (`requirements-lock.txt`);
+the trained model is mounted at runtime because it is derived from academically licensed
+data.
+
+```bash
+docker build -t smishguard .
+docker run -p 8000:8000 -v "$(pwd)/models:/app/models:ro" smishguard
+```
+
+No dataset at hand? `python scripts/train_demo_model.py --output demo-models` trains a tiny
+demo model on the test fixture (for smoke tests only; its predictions are not meaningful).
+Mount `demo-models` instead of `models`.
+
 ## Development
 
 ```bash
 ruff check . && ruff format --check .
-pytest                               # runs without the licensed dataset
+pytest --cov=smishguard              # runs without the licensed dataset; CI requires >= 80%
 ```
 
 ## License
